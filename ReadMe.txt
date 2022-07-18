@@ -1,1 +1,1 @@
-Hey there this repo is has all my college dsa lab questions
+Hey there this repository is has all my college dsa lab questions
