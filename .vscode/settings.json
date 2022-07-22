@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "ctype.h": "c"
+    }
+}
