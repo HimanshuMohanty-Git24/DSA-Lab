@@ -1,3 +1,6 @@
+// Himanshu Mohanty
+// 2105719
+// CSE36
 #include <stdio.h>
 void funLemm(char input1[20], char input2[20], char input3[20]){
     int i=0;
