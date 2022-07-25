@@ -40,6 +40,7 @@ void splitStrDynamic(char s[], char op, int flag[], int onesCount, int query, in
         }
     }
 }
+
 int main()
 {
     char s[100], op, temp;
