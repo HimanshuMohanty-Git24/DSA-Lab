@@ -27,6 +27,7 @@ void splitString(char s[100], int query, int flag, int n)
         }
     }
 }
+
 int main()
 {
     char s[100];
