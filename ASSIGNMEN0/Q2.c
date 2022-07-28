@@ -9,7 +9,7 @@ void splitStrDynamic(char s[], char op, int flag[], int onesCount, int query, in
     {
         if (s[i] == op)
         {
-            flag[onesCount] = i;
+            flag[onesCount] = i; // onesCount is used to store the flag pos simulatneiously
             onesCount++;
         }
         else
