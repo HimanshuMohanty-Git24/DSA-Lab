@@ -1,7 +1,8 @@
 {
-    "files.associations": {
-        "*.ejs": "html",
-        "ctype.h": "c",
-        "stdio.h": "c"
-    }
+  "files.associations": {
+    "*.ejs": "html",
+    "ctype.h": "c",
+    "stdio.h": "c",
+    "stdlib.h": "c"
+  }
 }

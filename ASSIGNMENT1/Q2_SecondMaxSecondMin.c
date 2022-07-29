@@ -1,3 +1,6 @@
+// Himanshu Mohanty
+// 2105719
+// CSE36
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
