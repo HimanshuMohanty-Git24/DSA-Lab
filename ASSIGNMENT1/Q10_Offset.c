@@ -29,9 +29,9 @@ int main(int argc, char const *argv[])
     if (offset < 0)
     {
         int val;
-        for (int i = 1; i <= (-offset); i++)
+        for (int i = -(offset); i > 0; i--)
         {
-            val = (-i) + 26;
+            val = 26 - i;
             num = (numInt[0] + (val));
             printf("%c ", num);
         }
