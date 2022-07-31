@@ -3,7 +3,7 @@
 // CSE36
 #include <stdio.h>
 #include <stdlib.h>
-int main(int argc, char const *argv[])
+int main()
 {
     char temp;
     char *input = (char *)malloc(3 * sizeof(char));
