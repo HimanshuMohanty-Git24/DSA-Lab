@@ -5,37 +5,36 @@
 #include <stdlib.h>
 int main()
 {
+    int n;
+    printf("Enter the number of input char:");
+    scanf("%d", &n);
+    int offset;
     char temp;
-    char *input = (char *)malloc(3 * sizeof(char));
-    int numInt[3];
-    for (int i = 0; i < 3; i++)
+    scanf("%c", &temp);
+    char *input = (char *)malloc(n * sizeof(char));
+    int numInt[n];
+    printf("\nENTER THE CHAR\n");
+    for (int i = 0; i < n; i++)
     {
         scanf("%c", &input[i]);
+        numInt[i] = input[i];
         scanf("%c", &temp);
-        numInt[i] = (int)(input[i]);
     }
-    int offset;
     printf("Enter the offset:");
     scanf("%d", &offset);
-    int num = 0;
-    if (offset > 0)
+    for (int i = 0; i < n; i++)
     {
-        for (int i = 1; i <= offset; i++)
+        int c = input[i] + offset;
+        if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
         {
-            num = (numInt[2] + i);
-            printf("%c ", num);
+            printf("%C ", c);
+        }
+        else if (c < 65 || c < 97)
+        {
+            int z = 26 + c;
+            printf("%c ", z);
         }
     }
-    if (offset < 0)
-    {
-        int val;
-        for (int i = -(offset); i > 0; i--)
-        {
-            val = 26 - i;
-            num = (numInt[0] + (val));
-            printf("%c ", num);
-        }
-    }
-
+    free(input);
     return 0;
 }
