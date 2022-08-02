@@ -3,7 +3,6 @@
 // CSE36
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 int main()
 {
     int n, max, min;
@@ -16,7 +15,8 @@ int main()
     {
         scanf("%d", &ptr[i]);
     }
-    max = secMax = 0;
+    max = ptr[0];
+    secMax = ptr[0];
     for (int i = 0; i < n; i++)
     {
         if (ptr[i] > max)
@@ -24,22 +24,19 @@ int main()
             secMax = max;
             max = ptr[i];
         }
-        else if (ptr[i] < min && ptr[i] > secMax)
+        else if (ptr[i] > secMax)
         {
             secMax = ptr[i];
         }
     }
-    min = secMin = max;
+    min = ptr[0];
+    secMin = ptr[1];
     for (int i = 0; i < n; i++)
     {
         if (ptr[i] < min)
         {
             secMin = min;
             min = ptr[i];
-        }
-        else if (ptr[i] > min && ptr[i] < secMin)
-        {
-            secMin = ptr[i];
         }
     }
     printf("\nSecMax:%d\n", secMax);
