@@ -36,7 +36,12 @@ int main()
         scanf("%f", &s[i].cgpa);
         printf("Placed:");
         scanf("%s", s[i].placed);
-        fprintf(fptr, "\nStudent No.%d\nRoll: %d \nName:%s \nGender:%c \nCGPA:%.2f \nPlaced:%s \n", (i + 1), s[i].roll, s[i].name, s[i].gender, s[i].cgpa, s[i].placed);
+        fprintf(fptr, "Student No.%d\n", (i + 1));
+        fprintf(fptr, "Student Roll No:%d\n", s[i].roll);
+        fprintf(fptr, "Student Name:%s\n", s[i].name);
+        fprintf(fptr, "Student Gender:%c\n", s[i].gender);
+        fprintf(fptr, "Student CGPA:%f\n", s[i].cgpa);
+        fprintf(fptr, "Student Placed:%s\n\n", s[i].placed);
         printf("\n\n");
     }
     printf("\n\n");

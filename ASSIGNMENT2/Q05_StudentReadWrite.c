@@ -26,8 +26,13 @@ int main()
     {
         if (!feof(fptr))
         {
-            fscanf(fptr, "\nStudent No.%d\nRoll: %d \nName:%s \nGender:%c \nCGPA:%.2f \nPlaced:%s \n", &s[i].index, &s[i].roll, s[i].name, &s[i].gender, &s[i].cgpa, s[i].placed);
-            printf("\nStudent No.%d\n", (s[1].index + 1));
+            fscanf(fptr, "Student No.%d\n", &s[i].index);
+            fscanf(fptr, "Student Roll No:%d\n", &s[i].roll);
+            fscanf(fptr, "Student Name:%s\n", s[i].name);
+            fscanf(fptr, "Student Gender:%c\n", &s[i].gender);
+            fscanf(fptr, "Student CGPA:%f\n", &s[i].cgpa);
+            fscanf(fptr, "Student Placed:%s\n\n", s[i].placed);
+            printf("\nStudent No.%d\n", s[i].index);
             printf("Roll No.:%d\n", s[i].roll);
             printf("Name:%s\n", s[i].name);
             printf("Gender:%c\n", s[i].gender);
