@@ -25,9 +25,9 @@ int main()
             }
         }
     }
-    float per = ((float)ctr / (float)(m * n)) * 100;
-    printf("\n%d\n", per);
-    if (per >= 70)
+    int cond = (m * n) / 2;
+    // printf("%d", ctr);
+    if (ctr >= cond)
     {
         printf("It is a sparse matrix");
     }
