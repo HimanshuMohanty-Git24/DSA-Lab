@@ -12,7 +12,7 @@ int binarysearch(int array[100], int n, int search)
             first = middle + 1;
         else if (array[middle] == search)
         {
-            printf("%d found at location %d.\n", search, middle + 1);
+            printf("%d found at location %d after sorting.\n", search, middle + 1);
             break;
         }
         else
