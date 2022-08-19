@@ -13,7 +13,18 @@ int main()
 
     printf("Enter value to find\n");
     scanf("%d", &search);
-
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = i + 1; j < n; ++j)
+        {
+            if (array[i] > array[j])
+            {
+                int a = array[i];
+                array[i] = array[j];
+                array[j] = a;
+            }
+        }
+    }
     first = 0;
     last = n - 1;
     middle = (first + last) / 2;
