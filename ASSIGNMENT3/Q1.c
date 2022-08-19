@@ -50,6 +50,11 @@ int main()
     {
         power = pow(x, a);
         res = power % p;
+        printf("The result is%d", res);
+    }
+    else
+    {
+        prime("Requirement not met !!");
     }
     return 0;
 }
