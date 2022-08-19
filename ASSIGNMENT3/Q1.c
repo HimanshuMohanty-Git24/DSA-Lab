@@ -20,7 +20,7 @@ int gcd(int x, int p)
 }
 int prime(int p)
 {
-    int count;
+    int count = 0;
     for (int i = 1; i <= p; i++)
     {
         if (p % i == 0)
@@ -37,17 +37,24 @@ int prime(int p)
 }
 int main()
 {
-    int x, a, p, res, power;
-    printf("Enter x a and p respectively:");
-    scanf("%d%d%d", &x, &a, &p);
+    int x, a, p, remainder, power, res1, res2;
+    x = 4, p = 5, a = 10;
     int gflag, pflag;
     gflag = gcd(x, p);
     pflag = prime(p);
     if (gflag == 1 && pflag == 1 && a > (p - 1))
     {
-        power = pow(x, a);
-        res = power % p;
-        printf("The result is%d", res);
+        remainder = a % p;
+        if (remainder == 0)
+        {
+            res1 = 1;
+            printf("\nResult is :%d\n", res1);
+        }
+        else
+        {
+            res2 = pow(x, remainder);
+            printf("\nResult is :%d\n", res2);
+        }
     }
     else
     {
