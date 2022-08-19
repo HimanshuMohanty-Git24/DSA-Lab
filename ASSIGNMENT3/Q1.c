@@ -46,7 +46,7 @@ int main()
     int gflag, pflag;
     gflag = gcd(x, p);
     pflag = prime(p);
-    if (gflag == 1 && pflag == 1)
+    if (gflag == 1 && pflag == 1 && a > (p - 1))
     {
         power = pow(x, a);
         res = power % p;
