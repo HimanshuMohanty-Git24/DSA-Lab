@@ -2,18 +2,14 @@
 #include <math.h>
 int gcd(int x, int p)
 {
-    while (x != p)
+    int gcd;
+    for (int i = 1; i <= x && i <= p; ++i)
     {
-        if (x > p)
-        {
-            x = x - p;
-        }
-        else
-        {
-            p = p - x;
-        }
+
+        if (x % i == 0 && p % i == 0)
+            gcd = i;
     }
-    if (x == 1)
+    if (gcd == 1)
     {
         return 1;
     }
@@ -42,6 +38,7 @@ int prime(int p)
 int main()
 {
     int x, a, p, res, power;
+    printf("Enter x a and p respectively:");
     scanf("%d%d%d", &x, &a, &p);
     int gflag, pflag;
     gflag = gcd(x, p);
@@ -54,7 +51,7 @@ int main()
     }
     else
     {
-        prime("Requirement not met !!");
+        printf("Requirement not met !!");
     }
     return 0;
 }
