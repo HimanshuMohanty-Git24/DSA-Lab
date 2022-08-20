@@ -1,30 +1,48 @@
+// Recursive method
 #include <stdio.h>
-int recursiveBinarySearch(int array[], int start_index, int end_index, int element)
+#include <stdlib.h>
+int binarysearch(int a[], int key, int low, int high)
 {
-    if (end_index >= start_index)
+    if (low > high)
     {
-        int middle = start_index + (end_index - start_index) / 2;
-        if (array[middle] == element)
-            return middle;
-        if (array[middle] > element)
-            return recursiveBinarySearch(array, start_index, middle - 1, element);
-        return recursiveBinarySearch(array, middle + 1, end_index, element);
+        return -1;
     }
-    return -1;
-}
-int main(void)
-{
-    int array[] = {1, 4, 7, 9, 16, 56, 70};
-    int n = 7;
-    int element = 9;
-    int found_index = recursiveBinarySearch(array, 0, n - 1, element);
-    if (found_index == -1)
+    int mid = (low + high) / 2;
+    if (a[mid] == key)
     {
-        printf("Element not found in the array ");
+        return mid;
+    }
+    if (key > a[mid])
+    {
+        return binarysearch(a, key, mid + 1, high);
     }
     else
     {
-        printf("Element found at index : %d", found_index);
+        return binarysearch(a, key, low, mid - 1);
+    }
+}
+int main()
+{
+    int n, key;
+    printf("Enter the number of element:");
+    scanf("%d", &n);
+    int *a = (int *)malloc(n * sizeof(int));
+    printf("Enter the element:");
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    printf("Enter the key:");
+    scanf("%d", &key);
+    int res;
+    res = binarysearch(a, key, 0, n - 1);
+    if (res != -1)
+    {
+        printf("Yes %d is present at %d postion", key, (res + 1));
+    }
+    else
+    {
+        printf("%d not found in the array !!", key);
     }
     return 0;
 }
