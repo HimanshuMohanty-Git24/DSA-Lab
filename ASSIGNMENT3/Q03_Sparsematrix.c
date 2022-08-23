@@ -31,14 +31,17 @@ int main()
             }
         }
     }
-    int cond = (m * n) / 2;
-    if (ctr >= cond)
+    float per = ((float)ctr / (float)(m * n)) * 100;
+    float th;
+    printf("Enter the threshold:");
+    scanf("%f", &th);
+    if (per >= th)
     {
-        printf("It is a sparse matrix");
+        printf("\nThis is a sparse matrix\n");
     }
     else
     {
-        printf("Not a sparse matrix");
+        printf("\nNot a sparse matrix\n");
     }
     for (int i = 0; i < m; i++)
     {
