@@ -16,7 +16,7 @@ int main()
     {
         hd = hd2;
     }
-    int *poly = (int *)malloc((hd + 1) * sizeof(int));
+    int *poly = (int *)calloc((hd + 1), sizeof(int));
     printf("\nFIRST POLYNOMIAL\n");
     for (int i = 0; i <= hd1; i++)
     {
@@ -24,23 +24,14 @@ int main()
         scanf("%d", &poly[i]);
     }
     printf("\n\n");
-    int *poly1 = (int *)malloc((hd + 1) * sizeof(int));
+    int *poly1 = (int *)calloc((hd + 1), sizeof(int));
     printf("\nSECOND POLYNOMIAL\n");
     for (int i = 0; i <= hd2; i++)
     {
         printf("Enter the coefficient of X^%d:", i);
         scanf("%d", &poly1[i]);
     }
-    if (hd1 > hd2)
-    {
-        poly1[hd] = 0;
-    }
-    else
-    {
-        hd = hd2;
-        poly[hd] = 0;
-    }
-    int *polysum = (int *)malloc((hd + 1) * sizeof(int));
+    int *polysum = (int *)calloc((hd + 1), sizeof(int));
     for (int i = 0; i <= hd; i++)
     {
         polysum[i] = poly[i] + poly1[i];
