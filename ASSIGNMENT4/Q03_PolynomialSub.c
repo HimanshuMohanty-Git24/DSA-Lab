@@ -31,22 +31,29 @@ int main()
         printf("Enter the coefficient of X^%d:", i);
         scanf("%d", &poly1[i]);
     }
-    int *polysum = (int *)calloc((hd + 1), sizeof(int));
+    int *polysub = (int *)calloc((hd + 1), sizeof(int));
     for (int i = 0; i <= hd; i++)
     {
         if (hd1 > hd2)
         {
-            polysum[i] = poly[i] - poly1[i];
+            polysub[i] = poly[i] - poly1[i];
         }
         else
         {
-            polysum[i] = poly1[i] - poly[i];
+            polysub[i] = poly1[i] - poly[i];
         }
     }
     printf("\nFINAL POLYNOMIAL AFTER SUBSTRACTION\n");
     for (int i = hd; i >= 0; i--)
     {
-        printf("Coefficient of X^%d:%d\n", i, polysum[i]);
+        if (i != 0)
+        {
+            printf("%dX^%d+", polysub[i], i);
+        }
+        else
+        {
+            printf("%dX^%d", polysub[i], i);
+        }
     }
     return 0;
 }
