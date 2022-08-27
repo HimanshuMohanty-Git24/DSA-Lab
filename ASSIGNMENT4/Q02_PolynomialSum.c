@@ -40,7 +40,14 @@ int main()
     printf("\nFINAL POLYNOMIAL AFTER SUM\n");
     for (int i = hd; i >= 0; i--)
     {
-        printf("Coefficient of X^%d:%d\n", i, polysum[i]);
+        if (i != 0)
+        {
+            printf("%dX^%d+", polysum[i], i);
+        }
+        else
+        {
+            printf("%dX^%d", polysum[i], i);
+        }
     }
 
     return 0;
