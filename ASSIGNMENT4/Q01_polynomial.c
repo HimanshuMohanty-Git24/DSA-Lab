@@ -14,7 +14,14 @@ int main()
     printf("\nThe input polynomial\n");
     for (int i = hd; i >= 0; i--)
     {
-        printf("Coefficient of X^%d:%d\n", i, poly[i]);
+        if (i != 0)
+        {
+            printf("%dX^%d+", poly[i], i);
+        }
+        else
+        {
+            printf("%dX^%d", poly[i], i);
+        }
     }
 
     return 0;
