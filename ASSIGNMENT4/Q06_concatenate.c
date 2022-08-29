@@ -32,7 +32,6 @@ void concatenate(struct node *a, struct node *b)
         printf("Either a or b is NULL\n");
     }
 }
-
 int main()
 {
     struct node *prev, *a, *b, *p;
