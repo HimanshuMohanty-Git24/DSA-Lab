@@ -5,11 +5,11 @@ struct node
     int data;
     struct node *next;
 };
-display(struct node *head)
+void display(struct node *head)
 {
     if (head == NULL)
     {
-        printf("NULL\n");
+        printf(" ");
     }
     else
     {
@@ -65,5 +65,7 @@ int main()
         prev = p;
     }
     concatenate(a, b);
+    printf("\nConcatenated Linkedlist:\n");
+    display(a);
     return 0;
 }
