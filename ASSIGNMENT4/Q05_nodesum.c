@@ -75,16 +75,16 @@ int sumofnode()
 int main()
 {
     int pick;
+    printf("\nMENU\n");
+    printf("\nChoose one task: \n");
+    printf("\n1. Add node at first.\n");
+    printf("\n2. Add node at last.\n");
+    printf("\n3. Add node at any position.\n");
+    printf("\n4. Display all nodes.\n");
+    printf("\n5. Display sum of all nodes.\n");
+    printf("\n6. To exit\n");
     while (1)
     {
-        printf("\nMENU\n");
-        printf("\nChoose one task: \n");
-        printf("\n1. Add node at first.\n");
-        printf("\n2. Add node at last.\n");
-        printf("\n3. Add node at any position.\n");
-        printf("\n4. Display all nodes.\n");
-        printf("\n5. Display sum of all nodes.\n");
-        printf("\n6. To exit\n");
         printf("\nEnter your choice:");
         scanf("%d", &pick);
         switch (pick)
