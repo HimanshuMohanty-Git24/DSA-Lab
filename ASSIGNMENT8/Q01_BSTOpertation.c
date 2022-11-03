@@ -1,95 +1,119 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct btnode
+struct node
 {
-    int value;
-    struct btnode *l;
-    struct btnode *r;
-} *root = NULL, *temp = NULL, *t2, *t1;
+    int key;
+    struct node *left, *right;
+};
 
-void create()
+struct node *newNode(int item)
 {
-    int data;
-
-    printf("Enter data be inserted : ");
-    scanf("%d", &data);
-    temp = (struct btnode *)malloc(1 * sizeof(struct btnode));
-    temp->value = data;
-    temp->l = temp->r = NULL;
+    struct node *temp = (struct node *)malloc(sizeof(struct node));
+    temp->key = item;
+    temp->left = temp->right = NULL;
+    return temp;
 }
 
-void search(struct btnode *t)
+void inorder(struct node *root)
 {
-    if ((temp->value > t->value) && (t->r != NULL))
-        search(t->r);
-    else if ((temp->value > t->value) && (t->r == NULL))
-        t->r = temp;
-    else if ((temp->value < t->value) && (t->l != NULL))
-        search(t->l);
-    else if ((temp->value < t->value) && (t->l == NULL))
-        t->l = temp;
-}
-
-void insert()
-{
-    create();
-    if (root == NULL)
-        root = temp;
-    else
-        search(root);
-}
-
-void deletenode()
-{
-}
-
-void traverse(struct btnode *t)
-{
-    if (root == NULL)
+    if (root != NULL)
     {
-        printf("No elements in a tree");
-        return;
+        inorder(root->left);
+        printf("%d ", root->key);
+        inorder(root->right);
     }
-    if (t->l != NULL)
-        traverse(t->l);
-    printf("%d -> ", t->value);
-    if (t->r != NULL)
-        traverse(t->r);
 }
 
-int flag = 1;
+struct node *insert(struct node *node, int key)
+{
+
+    if (node == NULL)
+        return newNode(key);
+
+    if (key < node->key)
+        node->left = insert(node->left, key);
+    else
+        node->right = insert(node->right, key);
+
+    return node;
+}
+
+struct node *minValueNode(struct node *node)
+{
+    struct node *current = node;
+
+    while (current && current->left != NULL)
+        current = current->left;
+
+    return current;
+}
+
+struct node *deleteNode(struct node *root, int key)
+{
+
+    if (root == NULL)
+        return root;
+
+    if (key < root->key)
+        root->left = deleteNode(root->left, key);
+
+    else if (key > root->key)
+        root->right = deleteNode(root->right, key);
+
+    else
+    {
+
+        if (root->left == NULL)
+        {
+            struct node *temp = root->right;
+            free(root);
+            return temp;
+        }
+        else if (root->right == NULL)
+        {
+            struct node *temp = root->left;
+            free(root);
+            return temp;
+        }
+
+        struct node *temp = minValueNode(root->right);
+
+        root->key = temp->key;
+
+        root->right = deleteNode(root->right, temp->key);
+    }
+    return root;
+}
 
 int main()
 {
-    int ch;
-    while (1)
-    {
-        printf("\n\t\tOPERATIONS On BST\t\t\n");
-        printf("\n1 - Insert an element into tree\n");
-        printf("\n2 - Delete an element from the tree\n");
-        printf("\n3 - Traverse the tree\n");
-        printf("\n0 - Exit\n");
-        printf("\nEnter your choice : ");
-        scanf("%d", &ch);
-        switch (ch)
-        {
-        case 1:
-            insert();
-            break;
-        case 2:
-            deletenode();
-            break;
-        case 3:
-            traverse(root);
-            break;
-        case 0:
-            exit(0);
-        default:
-            printf("Wrong choice, Please enter correct choice  ");
-            break;
-        }
-    }
+    struct node *root = NULL;
+    root = insert(root, 50);
+    root = insert(root, 30);
+    root = insert(root, 20);
+    root = insert(root, 40);
+    root = insert(root, 70);
+    root = insert(root, 60);
+    root = insert(root, 80);
+
+    printf("Inorder traversal of the given tree \n");
+    inorder(root);
+
+    printf("\nDelete 20\n");
+    root = deleteNode(root, 20);
+    printf("Inorder traversal of the modified tree \n");
+    inorder(root);
+
+    printf("\nDelete 30\n");
+    root = deleteNode(root, 30);
+    printf("Inorder traversal of the modified tree \n");
+    inorder(root);
+
+    printf("\nDelete 50\n");
+    root = deleteNode(root, 50);
+    printf("Inorder traversal of the modified tree \n");
+    inorder(root);
 
     return 0;
 }
