@@ -7,7 +7,6 @@ struct btnode
     struct btnode *l;
     struct btnode *r;
 } *root = NULL, *temp = NULL, *t2, *t1;
-
 void create()
 {
     int data;
@@ -17,6 +16,17 @@ void create()
     temp = (struct btnode *)malloc(1 * sizeof(struct btnode));
     temp->value = data;
     temp->l = temp->r = NULL;
+    return data;
+}
+int form()
+{
+    printf("\nEnter the number of elemnt to be inserted:");
+    int x;
+    scanf("%d", &x);
+    for (int i = 0; i < x; i++)
+    {
+        insert();
+    }
 }
 
 void search(struct btnode *t)
@@ -54,62 +64,27 @@ void inorder(struct btnode *t)
         inorder(t->r);
 }
 
-void preorder(struct btnode *t)
-{
-    if (root == NULL)
-    {
-        printf("No elements in a tree to display");
-        return;
-    }
-    printf("%d -> ", t->value);
-    if (t->l != NULL)
-        preorder(t->l);
-    if (t->r != NULL)
-        preorder(t->r);
-}
-
-void postorder(struct btnode *t)
-{
-    if (root == NULL)
-    {
-        printf("No elements in a tree to display ");
-        return;
-    }
-    if (t->l != NULL)
-        postorder(t->l);
-    if (t->r != NULL)
-        postorder(t->r);
-    printf("%d -> ", t->value);
-}
-
 int flag = 1;
 
 int main()
 {
     int ch;
+    printf("\n\t\tOPERATIONS On BST\t\t\n");
+    printf("\n1 - Creation of BST\n");
+    printf("\n2-Inorder Traversal\n");
+    printf("\n0 - Exit\n");
     while (1)
     {
-        printf("\n\t\tOPERATIONS On BST\t\t\n");
-        printf("\n1 - Insert an element into tree\n");
-        printf("\n2 - Inorder traverse\n");
-        printf("\n3 - Preorder traverse\n");
-        printf("\n4 - Postorder traverse\n");
-        printf("\n0 - Exit\n");
+
         printf("\nEnter your choice : ");
         scanf("%d", &ch);
         switch (ch)
         {
         case 1:
-            insert();
+            form();
             break;
         case 2:
             inorder(root);
-            break;
-        case 3:
-            preorder(root);
-            break;
-        case 4:
-            postorder(root);
             break;
         case 0:
             exit(0);

@@ -85,7 +85,6 @@ struct node *deleteNode(struct node *root, int key)
     }
     return root;
 }
-
 int main()
 {
     struct node *root = NULL;
