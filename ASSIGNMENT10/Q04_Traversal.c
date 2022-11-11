@@ -75,15 +75,15 @@ int main()
     Inorder(root);
     printf("\nPostorder Traversal\n");
     Postorder(root);
-    struct node *found;
-    printf("\nSearching an element\n");
-    found = Search(root, 10);
-    if (found != NULL)
-    {
-        printf("\nFound %d !!!\n", found->data);
-    }
-    else
-    {
-        printf("\nElement not found\n");
-    }
+    // struct node *found;
+    // printf("\nSearching an element\n");
+    // found = Search(root, 10);
+    // if (found != NULL)
+    // {
+    //     printf("\nFound %d !!!\n", found->data);
+    // }
+    // else
+    // {
+    //     printf("\nElement not found\n");
+    // }
 }
