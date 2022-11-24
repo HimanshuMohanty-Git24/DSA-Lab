@@ -154,13 +154,38 @@ void delete_pos()
     {
         for (temp1 = head; i < pos - 1; i++)
         {
-            temp1 - temp->next;
+            temp1 = temp1->next;
         }
         temp = temp1->next;
         printf("\nElement deleted:%d\n", temp->data);
         temp1->next = temp->next;
         free(temp);
     }
+}
+void get_length()
+{
+    int count = 0;
+    struct node *temp;
+    for (temp = head; temp != NULL; temp = temp->next)
+    {
+        count++;
+    }
+    printf("\nThe length of linked list is:%d", count);
+}
+void reverseLL()
+{
+    printf("\nReversed linkedlist is:");
+    struct node *prevnode, *currentnode, *nextnode;
+    prevnode = NULL;
+    currentnode = nextnode = head;
+    while (nextnode != NULL)
+    {
+        nextnode = nextnode->next;
+        currentnode->next = prevnode;
+        prevnode = currentnode;
+        currentnode = nextnode;
+    }
+    head = prevnode;
 }
 int main()
 {
@@ -177,6 +202,9 @@ int main()
     delete_end();
     display();
     delete_pos();
+    display();
+    get_length();
+    reverseLL();
     display();
 
     return 0;
