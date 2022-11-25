@@ -186,6 +186,7 @@ void reverseLL()
         currentnode = nextnode;
     }
     head = prevnode;
+    display();
 }
 int search()
 {
