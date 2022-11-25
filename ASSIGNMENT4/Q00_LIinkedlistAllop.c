@@ -187,6 +187,24 @@ void reverseLL()
     }
     head = prevnode;
 }
+int search()
+{
+    printf("\nEnter the elemnt you want to search:");
+    int x;
+    scanf("%d", &x);
+    struct node *temp;
+    temp = head;
+    while (temp != NULL)
+    {
+        if (temp->data == x)
+        {
+            printf("\nElement found in the list !!!");
+            return 0;
+        }
+        temp = temp->next;
+    }
+    printf("\nElement not found!!!!\n");
+}
 int main()
 {
     Create();
