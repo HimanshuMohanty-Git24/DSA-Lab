@@ -205,25 +205,84 @@ int search()
     }
     printf("\nElement not found!!!!\n");
 }
+void sumofnode()
+{
+    printf("\nSum of all node:\n");
+    struct node *temp = head;
+    int sum = 0;
+    do
+    {
+        sum = sum + temp->data;
+        temp = temp->next;
+    } while (temp != NULL);
+    printf("%d\n", sum);
+}
 int main()
 {
-    Create();
-    display();
-    insert_beg();
-    display();
-    insert_end();
-    display();
-    insert_pos();
-    display();
-    delete_beg();
-    display();
-    delete_end();
-    display();
-    delete_pos();
-    display();
-    get_length();
-    reverseLL();
-    display();
-
+    int pick;
+    printf("\nMENU\n");
+    printf("\nChoose one task: \n");
+    printf("\n1. Creation of a List\n");
+    printf("\n2. Insert at first\n");
+    printf("\n3. Insert at last\n");
+    printf("\n4. Insert at any position\n");
+    printf("\n5. Delete at first\n");
+    printf("\n6. Delete at last\n");
+    printf("\n7. Delete at any position\n");
+    printf("\n8. Display the list\n");
+    printf("\n9. Length of the List\n");
+    printf("\n10. Reverse the List\n");
+    printf("\n11. Search an element in the list\n");
+    printf("\n12. Sum of all nodes in the list\n");
+    printf("\n0. To exit\n");
+    while (1)
+    {
+        printf("\nEnter your choice:");
+        scanf("%d", &pick);
+        switch (pick)
+        {
+        case 0:
+            exit(1);
+            break;
+        case 1:
+            Create();
+            break;
+        case 2:
+            insert_beg();
+            break;
+        case 3:
+            insert_end();
+            break;
+        case 4:
+            insert_pos();
+            break;
+        case 5:
+            delete_beg();
+            break;
+        case 6:
+            delete_end();
+            break;
+        case 7:
+            delete_pos();
+            break;
+        case 8:
+            display();
+            break;
+        case 9:
+            get_length();
+            break;
+        case 10:
+            reverseLL();
+            break;
+        case 11:
+            search();
+            break;
+        case 12:
+            sumofnode();
+            break;
+        default:
+            printf("Incorrect Choice\n");
+        }
+    }
     return 0;
 }
