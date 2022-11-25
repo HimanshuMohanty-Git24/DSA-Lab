@@ -262,7 +262,7 @@ void swap()
 int main()
 {
     int pick;
-    printf("\nMENU\n");
+    printf("\n\t\tMENU\t\t\n");
     printf("\nChoose one task: \n");
     printf("\n1. Creation of a List\n");
     printf("\n2. Insert at first\n");
