@@ -218,6 +218,47 @@ void sumofnode()
     } while (temp != NULL);
     printf("%d\n", sum);
 }
+void swap()
+{
+    int pos1, pos2;
+    struct node *currX, *currY, *prevX, *prevY, *temp;
+    currX = currY = head;
+    prevX = prevY = NULL;
+    printf("\nWhich position do you want to swap:");
+    scanf("%d %d", &pos1, &pos2);
+    if (pos1 == pos2)
+    {
+        printf("\nSame position\n");
+    }
+    int i1 = 1;
+    for (; i1 < pos1; i1++)
+    {
+        prevX = currX;
+        currX = currX->next;
+    }
+    int i2 = 1;
+    for (; i2 < pos2; i2++)
+    {
+        prevY = currY;
+        currY = currY->next;
+    }
+    if (currX == head)
+    {
+        head = currY;
+        prevY->next = currX;
+        temp = currY->next;
+        currY->next = currX->next;
+        currX->next = temp;
+    }
+    else
+    {
+        prevX->next = currY;
+        prevY->next = currX;
+        temp = currY->next;
+        currY->next = currX->next;
+        currX->next = temp;
+    }
+}
 int main()
 {
     int pick;
@@ -235,6 +276,7 @@ int main()
     printf("\n10. Reverse the List\n");
     printf("\n11. Search an element in the list\n");
     printf("\n12. Sum of all nodes in the list\n");
+    printf("\n13. Swap node of the list\n");
     printf("\n0. To exit\n");
     while (1)
     {
@@ -280,6 +322,9 @@ int main()
             break;
         case 12:
             sumofnode();
+            break;
+        case 13:
+            swap();
             break;
         default:
             printf("Incorrect Choice\n");
